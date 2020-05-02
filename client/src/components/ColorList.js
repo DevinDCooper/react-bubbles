@@ -10,7 +10,6 @@ const initialColor = {
 };
 const ColorList = ({ colors, updateColors }) => {
   console.log(colors);
-  
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
@@ -27,8 +26,9 @@ const ColorList = ({ colors, updateColors }) => {
     .then(res => {
       console.log(res.data);
       updateColors([...colors, res.data]);
-      setEditing(false);
-      
+       setEditing(false);
+       window.location.reload()
+    //  push("/Bubble Page");
     })
     .catch(err =>
       console.log("Error saving color", err));
